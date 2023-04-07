@@ -1,0 +1,9 @@
+[submodule "PX4-Autopilot-Quad"]
+	path = PX4-Autopilot-Quad
+	url = git@github.com:dev10110/PX4-Autopilot-Quad.git
+[submodule "colcon_ws/src/px4_msgs"]
+	path = colcon_ws/src/px4_msgs
+	url = https://github.com/PX4/px4_msgs.git
+[submodule "colcon_ws/src/px4_ros_com"]
+	path = colcon_ws/src/px4_ros_com
+	url = https://github.com/PX4/px4_ros_com.git
