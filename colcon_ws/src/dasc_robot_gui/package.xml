@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>dasc_robot_gui</name>
+  <version>0.10.3</version>
+  <description>DASC Robot GUI</description>
+  <maintainer email="devansh@umich.edu">Devansh Agrawal</maintainer>
+  <license>BSD</license>
+
+  <author>Devansh Agrawal</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>px4_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>rviz_common</depend>
+  <depend>rviz_rendering</depend>
+  <depend>sensor_msgs</depend>
+
+  <build_depend>qtbase5-dev</build_depend>
+
+  <exec_depend>libqt5-core</exec_depend>
+  <exec_depend>libqt5-gui</exec_depend>
+  <exec_depend>libqt5-widgets</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+      <build_type>ament_cmake</build_type>
+  </export>
+</package>

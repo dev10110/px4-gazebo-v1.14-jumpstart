@@ -1,8 +1,9 @@
-FROM ros:foxy
+#FROM ros:foxy
+FROM px4io/px4-dev-ros2-foxy
 
 SHELL ["/usr/bin/bash", "-c"]
 
-RUN apt-get update && apt-get install -y --no-install-recommends vim tmux cmake build-essential
+RUN apt-get update && apt-get install -y --no-install-recommends vim tmux cmake build-essential ssh
 
 RUN apt-get install -y --no-install-recommends python3-pip 
 RUN python3 -m pip install empy pyros-genmsg setuptools kconfiglib

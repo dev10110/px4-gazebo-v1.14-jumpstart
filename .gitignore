@@ -6,5 +6,5 @@ logs/
 
 *.bag
 
-
-PX4-Autopilot-Quad
+PX4-Autopilot/
+PX4-Autopilot-Quad/
