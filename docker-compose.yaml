@@ -13,6 +13,5 @@ services:
       - ~/.ssh:/root/.ssh
       - ./colcon_ws:/root/colcon_ws
       - ./PX4-Autopilot-Quad:/root/PX4-Autopilot-Quad
-      - ./PX4-Autopilot:/root/PX4-Autopilot
 
 
