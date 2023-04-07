@@ -44,6 +44,7 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   QHBoxLayout *pos_layout = new QHBoxLayout;
   QGridLayout *grid_layout = new QGridLayout;
   grid_layout->setHorizontalSpacing(3);
+  pos_layout->addItem(grid_layout);
 
   // header row
   // add(*Widget, row, col, rowspan, colspan);
@@ -90,7 +91,6 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   // visual inertial odom row
   grid_layout->addWidget(new QLabel("VIO:"), 4, 0);
 
-  pos_layout->addItem(grid_layout);
 
   // create the arm disarm buttons
   QHBoxLayout *button_layout = new QHBoxLayout;
@@ -126,6 +126,7 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   // object is destroyed.  Therefore we don't need to keep a pointer
   // to the timer.
   QTimer *output_timer = new QTimer(this);
+  setpoint_pub_timer = new QTimer(this);
 
   // Next we make signal/slot connections.
   connect(output_topic_editor_, SIGNAL(editingFinished()), this,
@@ -143,14 +144,51 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   connect(disarm_button_, &QPushButton::clicked, this, [this]() {
     this->commander_set_state(px4_msgs::msg::CommanderSetState::STATE_DISARMED);
   });
+ 
+  // connect the setpoint publisher 
+  connect(setpoint_pub, &QCheckBox::stateChanged, this, [this]() {
+		  if (this->setpoint_pub.isChecked()) {
+		  	this->setpoint_pub_timer_.start(50);
+			} else {
+			this->setpoint_pub_timer_.stop();
+			}
+  });
 
   connect(output_timer, SIGNAL(timeout()), this, SLOT(timer_callback()));
+  connect(setpoint_pub_timer, SIGNAL(timeout()), this, SLOT(setpoint_pub_timer_callback()));
 
-  // Start the timer.
+  // Start the main timer.
   output_timer->start(200); // ms
 
   // Create the node
   node_ = std::make_shared<rclcpp::Node>("dasc_robot_gui_node");
+}
+
+void TeleopPanel::setpoint_pub_timer_callback() {
+
+
+
+
+        // TODO: continue here
+	if (rclcpp.isOK() && topic != NULL){
+
+		// construct the setpoint
+		px4_msgs::msg::TrajectorySetpoint::SharedPtr msg;
+		msg->position[0] = setpoint_x.text().toFloat();
+		msg->position[1] = setpoint_y.text().toFloat();
+		msg->position[2] = setpoint_z.text().toFloat();
+		msg->yaw = setpoint_yaw.text().toFloat();
+		for (std::size_t i=0; i<3; i++){
+			msg->velocity[i] = 0;
+			msg->accleration[i] = 0;
+			msg->jerk[i] = 0;
+		}
+		msg->yaw_speed = 0;
+
+
+
+	}
+
 }
 
 void TeleopPanel::timer_callback() { rclcpp::spin_some(node_); }
