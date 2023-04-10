@@ -7,6 +7,7 @@
 #include "geometry_msgs/msg/twist.hpp"
 #include "px4_msgs/msg/commander_set_state.hpp"
 #include "px4_msgs/msg/commander_status.hpp"
+#include "px4_msgs/msg/trajectory_setpoint.hpp"
 #include "px4_msgs/msg/vehicle_local_position.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp/wait_for_message.hpp"
@@ -16,6 +17,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QRadioButton>
+#include <QTimer>
 
 class QLineEdit;
 
@@ -70,6 +72,7 @@ protected Q_SLOTS:
   void updateTopic();
 
   void timer_callback();
+  void setpoint_pub_timer_callback();
 
   void vehicle_local_pos_cb(
       const px4_msgs::msg::VehicleLocalPosition::SharedPtr msg) const;
@@ -88,6 +91,7 @@ protected:
   // Setpoint
   QLineEdit *setpoint_x, *setpoint_y, *setpoint_z, *setpoint_yaw;
   QCheckBox *setpoint_pub;
+  QTimer * setpoint_pub_timer_;
 
   // EKF:
   QLabel *ekf_x, *ekf_y, *ekf_z, *ekf_yaw, *ekf_valid;
@@ -104,6 +108,8 @@ protected:
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr velocity_publisher_;
   rclcpp::Publisher<px4_msgs::msg::CommanderSetState>::SharedPtr
       commander_set_state_pub_;
+  rclcpp::Publisher<px4_msgs::msg::TrajectorySetpoint>::SharedPtr
+	  trajectory_setpoint_pub_;
   rclcpp::Subscription<px4_msgs::msg::VehicleLocalPosition>::SharedPtr
       vehicle_local_pos_sub_;
   rclcpp::Subscription<px4_msgs::msg::CommanderStatus>::SharedPtr

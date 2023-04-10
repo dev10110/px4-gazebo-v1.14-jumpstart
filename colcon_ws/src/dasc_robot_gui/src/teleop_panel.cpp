@@ -61,6 +61,7 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   setpoint_z = new QLineEdit;
   setpoint_yaw = new QLineEdit;
   setpoint_pub = new QCheckBox("publish");
+  setpoint_pub.setChecked(false);
   grid_layout->addWidget(setpoint_x, 1, 1);
   grid_layout->addWidget(setpoint_y, 1, 2);
   grid_layout->addWidget(setpoint_z, 1, 3);
@@ -126,7 +127,7 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   // object is destroyed.  Therefore we don't need to keep a pointer
   // to the timer.
   QTimer *output_timer = new QTimer(this);
-  setpoint_pub_timer = new QTimer(this);
+  setpoint_pub_timer_ = new QTimer(this);
 
   // Next we make signal/slot connections.
   connect(output_topic_editor_, SIGNAL(editingFinished()), this,
@@ -140,22 +141,24 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   });
   connect(land_button_, &QPushButton::clicked, this, [this]() {
     this->commander_set_state(px4_msgs::msg::CommanderSetState::STATE_LAND);
+    setpoint_pub.setChecked(false);
   });
   connect(disarm_button_, &QPushButton::clicked, this, [this]() {
     this->commander_set_state(px4_msgs::msg::CommanderSetState::STATE_DISARMED);
+    setpoint_pub.setChecked(false);
   });
  
   // connect the setpoint publisher 
   connect(setpoint_pub, &QCheckBox::stateChanged, this, [this]() {
-		  if (this->setpoint_pub.isChecked()) {
-		  	this->setpoint_pub_timer_.start(50);
+		  if (this->setpoint_pub->isChecked()) {
+		  	this->setpoint_pub_timer_->start(50);
 			} else {
-			this->setpoint_pub_timer_.stop();
+			this->setpoint_pub_timer_->stop();
 			}
   });
 
   connect(output_timer, SIGNAL(timeout()), this, SLOT(timer_callback()));
-  connect(setpoint_pub_timer, SIGNAL(timeout()), this, SLOT(setpoint_pub_timer_callback()));
+  connect(setpoint_pub_timer_, SIGNAL(timeout()), this, SLOT(setpoint_pub_timer_callback()));
 
   // Start the main timer.
   output_timer->start(200); // ms
@@ -166,28 +169,21 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
 
 void TeleopPanel::setpoint_pub_timer_callback() {
 
-
-
-
-        // TODO: continue here
-	if (rclcpp.isOK() && topic != NULL){
-
-		// construct the setpoint
-		px4_msgs::msg::TrajectorySetpoint::SharedPtr msg;
-		msg->position[0] = setpoint_x.text().toFloat();
-		msg->position[1] = setpoint_y.text().toFloat();
-		msg->position[2] = setpoint_z.text().toFloat();
-		msg->yaw = setpoint_yaw.text().toFloat();
-		for (std::size_t i=0; i<3; i++){
-			msg->velocity[i] = 0;
-			msg->accleration[i] = 0;
-			msg->jerk[i] = 0;
-		}
-		msg->yaw_speed = 0;
-
-
-
+  if (rclcpp::ok() && trajectory_setpoint_pub_ != NULL) {
+	// construct the setpoint
+	px4_msgs::msg::TrajectorySetpoint msg;
+	msg.position[0] = setpoint_x->text().toFloat();
+	msg.position[1] = setpoint_y->text().toFloat();
+	msg.position[2] = setpoint_z->text().toFloat();
+	msg.yaw = (float)(M_PI / 180.f) * setpoint_yaw->text().toFloat();
+	for (std::size_t i=0; i<3; i++){
+		msg.velocity[i] = 0;
+		msg.acceleration[i] = 0;
+		msg.jerk[i] = 0;
 	}
+	msg.yawspeed = 0;
+	trajectory_setpoint_pub_->publish(msg);
+  }
 
 }
 
@@ -212,6 +208,10 @@ void TeleopPanel::setTopic(const QString &new_topic) {
     if (commander_set_state_pub_ != NULL) {
       commander_set_state_pub_.reset();
     }
+    // If a publisher currently exists, destroy it.
+    if (trajectory_setpoint_pub_ != NULL) {
+      trajectory_setpoint_pub_.reset();
+    }
     // If the subscriber exists, destroy it.
     if (vehicle_local_pos_sub_ != NULL) {
       vehicle_local_pos_sub_.reset();
@@ -230,6 +230,10 @@ void TeleopPanel::setTopic(const QString &new_topic) {
       commander_set_state_pub_ =
           node_->create_publisher<px4_msgs::msg::CommanderSetState>(
               output_topic_.toStdString() + "/fmu/in/commander_set_state", 1);
+      
+      trajectory_setpoint_pub_ =
+          node_->create_publisher<px4_msgs::msg::TrajectorySetpoint>(
+              output_topic_.toStdString() + "/fmu/in/trajectory_setpoint", 1);
 
       reset_ekf_label();
 

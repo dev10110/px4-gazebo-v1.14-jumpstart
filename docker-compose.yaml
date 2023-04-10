@@ -7,11 +7,19 @@ services:
     network_mode: "host"
     privileged: true
     environment: 
+      - QT_X11_NO_MITSHM=1
       - DISPLAY=$DISPLAY
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.ssh:/root/.ssh
       - ./colcon_ws:/root/colcon_ws
       - ./PX4-Autopilot-Quad:/root/PX4-Autopilot-Quad
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+
 
 
