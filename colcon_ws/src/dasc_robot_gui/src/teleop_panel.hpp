@@ -7,19 +7,23 @@
 #include "geometry_msgs/msg/twist.hpp"
 #include "px4_msgs/msg/commander_set_state.hpp"
 #include "px4_msgs/msg/commander_status.hpp"
+#include "px4_msgs/msg/parameter_req.hpp"
+#include "px4_msgs/msg/parameter_res.hpp"
 #include "px4_msgs/msg/trajectory_setpoint.hpp"
 #include "px4_msgs/msg/vehicle_local_position.hpp"
+#include "px4_msgs/msg/vehicle_odometry.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp/wait_for_message.hpp"
 #include "rviz_common/panel.hpp"
 #endif
 #include <QCheckBox>
 #include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QTimer>
 
-class QLineEdit;
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
 namespace dasc_robot_gui {
 
@@ -73,6 +77,10 @@ protected Q_SLOTS:
 
   void timer_callback();
   void setpoint_pub_timer_callback();
+  void parameter_req(bool set);
+
+  void trajectory_setpoint_cb(
+      const px4_msgs::msg::TrajectorySetpoint::SharedPtr msg) const;
 
   void vehicle_local_pos_cb(
       const px4_msgs::msg::VehicleLocalPosition::SharedPtr msg) const;
@@ -80,7 +88,12 @@ protected Q_SLOTS:
   void commander_status_cb(
       const px4_msgs::msg::CommanderStatus::SharedPtr msg) const;
 
-  void reset_ekf_label();
+  void vehicle_visual_odometry_cb(
+      const px4_msgs::msg::VehicleOdometry::SharedPtr msg) const;
+
+  void parameter_res_cb(const px4_msgs::msg::ParameterRes::SharedPtr msg) const;
+
+  void reset();
 
   // Then we finish up with protected member variables.
 
@@ -90,15 +103,25 @@ protected:
 
   // Setpoint
   QLineEdit *setpoint_x, *setpoint_y, *setpoint_z, *setpoint_yaw;
+  QLabel *setpoint_x_disp, *setpoint_y_disp, *setpoint_z_disp,
+      *setpoint_yaw_disp;
   QCheckBox *setpoint_pub;
-  QTimer * setpoint_pub_timer_;
+  QTimer *setpoint_pub_timer_;
 
   // EKF:
   QLabel *ekf_x, *ekf_y, *ekf_z, *ekf_yaw, *ekf_valid;
 
+  // Mocap:
+  QLabel *mocap_x, *mocap_y, *mocap_z, *mocap_yaw, *mocap_valid;
+
   // Status:
   QLabel *status_label_;
   QPushButton *arm_button_, *offboard_button_, *land_button_, *disarm_button_;
+
+  // Param:
+  QLineEdit *param_name_, *param_set_;
+  QLabel *param_get_label_;
+  QPushButton *param_get_button_, *param_set_button_;
 
   // The current name of the output topic.
   QString output_topic_;
@@ -109,11 +132,19 @@ protected:
   rclcpp::Publisher<px4_msgs::msg::CommanderSetState>::SharedPtr
       commander_set_state_pub_;
   rclcpp::Publisher<px4_msgs::msg::TrajectorySetpoint>::SharedPtr
-	  trajectory_setpoint_pub_;
+      trajectory_setpoint_pub_;
+  rclcpp::Publisher<px4_msgs::msg::ParameterReq>::SharedPtr parameter_req_pub_;
+
   rclcpp::Subscription<px4_msgs::msg::VehicleLocalPosition>::SharedPtr
       vehicle_local_pos_sub_;
   rclcpp::Subscription<px4_msgs::msg::CommanderStatus>::SharedPtr
       commander_status_sub_;
+  rclcpp::Subscription<px4_msgs::msg::VehicleOdometry>::SharedPtr
+      vehicle_visual_odometry_sub_;
+  rclcpp::Subscription<px4_msgs::msg::TrajectorySetpoint>::SharedPtr
+      trajectory_setpoint_sub_;
+  rclcpp::Subscription<px4_msgs::msg::ParameterRes>::SharedPtr
+      parameter_res_sub_;
 };
 
 } // end namespace dasc_robot_gui

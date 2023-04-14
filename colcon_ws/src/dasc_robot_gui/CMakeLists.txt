@@ -23,6 +23,7 @@ find_package(rviz_common REQUIRED)
 find_package(rviz_rendering REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(px4_msgs REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 
 ## This setting causes Qt's "MOC" generation to happen automatically.
 set(CMAKE_AUTOMOC ON)
@@ -45,18 +46,19 @@ ament_target_dependencies(${PROJECT_NAME}
   "rclcpp"
   "rviz_common"
   "rviz_rendering"
+  "tf2_geometry_msgs"
   "sensor_msgs")
 target_include_directories(${PROJECT_NAME} PUBLIC
   ${Qt5Widgets_INCLUDE_DIRS})
 
 ## Here we export the plugins and meshes so they can be found by RViz at runtime.
 pluginlib_export_plugin_description_file(rviz_common plugin_description.xml)
-register_rviz_ogre_media_exports(DIRECTORIES "media")
 
 ## END_TUTORIAL
 
 ament_export_dependencies(
   geometry_msgs
+  tf2_geometry_msgs
   px4_msgs
   rclcpp
   rviz_common
@@ -74,9 +76,6 @@ install(TARGETS
   LIBRARY DESTINATION lib/${PROJECT_NAME}
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
-
-install(DIRECTORY media/
-  DESTINATION share/${PROJECT_NAME}/media)
 
 install(DIRECTORY icons/
   DESTINATION share/${PROJECT_NAME}/icons)
