@@ -54,10 +54,21 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
 
   // visual inertial odom row
   grid_layout->addWidget(new QLabel("Setpoint:"), 1, 0);
-  setpoint_x = new QLineEdit;
-  setpoint_y = new QLineEdit;
-  setpoint_z = new QLineEdit;
-  setpoint_yaw = new QLineEdit;
+  setpoint_x = new QDoubleSpinBox;
+  setpoint_y = new QDoubleSpinBox;
+  setpoint_z = new QDoubleSpinBox;
+  setpoint_yaw = new QDoubleSpinBox;
+  for (auto s : {setpoint_x, setpoint_y, setpoint_z} ){
+	  s -> setSingleStep(0.1);
+	  s -> setValue(0.0);
+	  s -> setRange(-100.0, 100.0);
+	  s -> setWrapping(false);
+  }
+  setpoint_yaw -> setSingleStep(5.0);
+  setpoint_yaw -> setValue(90);
+  setpoint_yaw -> setRange(0, 360);
+  setpoint_yaw -> setWrapping(true);
+  
   setpoint_pub = new QCheckBox("publish");
   setpoint_pub->setChecked(false);
   grid_layout->addWidget(setpoint_x, 1, 1);
@@ -259,10 +270,10 @@ void TeleopPanel::setpoint_pub_timer_callback() {
   if (rclcpp::ok() && trajectory_setpoint_pub_ != NULL) {
     // construct the setpoint
     px4_msgs::msg::TrajectorySetpoint msg;
-    msg.position[0] = setpoint_x->text().toFloat();
-    msg.position[1] = setpoint_y->text().toFloat();
-    msg.position[2] = setpoint_z->text().toFloat();
-    msg.yaw = (float)(M_PI / 180.f) * setpoint_yaw->text().toFloat();
+    msg.position[0] = setpoint_x->value();
+    msg.position[1] = setpoint_y->value();
+    msg.position[2] = setpoint_z->value();
+    msg.yaw = (float)(M_PI / 180.f) * (float)(setpoint_yaw->value());
     for (std::size_t i = 0; i < 3; i++) {
       msg.velocity[i] = 0;
       msg.acceleration[i] = 0;

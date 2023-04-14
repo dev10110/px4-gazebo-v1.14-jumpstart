@@ -22,6 +22,7 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <QTimer>
+#include <QDoubleSpinBox>
 
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
@@ -102,7 +103,7 @@ protected:
   QLineEdit *output_topic_editor_;
 
   // Setpoint
-  QLineEdit *setpoint_x, *setpoint_y, *setpoint_z, *setpoint_yaw;
+  QDoubleSpinBox *setpoint_x, *setpoint_y, *setpoint_z, *setpoint_yaw;
   QLabel *setpoint_x_disp, *setpoint_y_disp, *setpoint_z_disp,
       *setpoint_yaw_disp;
   QCheckBox *setpoint_pub;
