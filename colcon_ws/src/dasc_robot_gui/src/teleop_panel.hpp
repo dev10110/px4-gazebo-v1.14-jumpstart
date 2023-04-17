@@ -87,7 +87,7 @@ protected Q_SLOTS:
       const px4_msgs::msg::VehicleLocalPosition::SharedPtr msg) const;
 
   void commander_status_cb(
-      const px4_msgs::msg::CommanderStatus::SharedPtr msg) const;
+      const px4_msgs::msg::CommanderStatus::SharedPtr msg) ;
 
   void vehicle_visual_odometry_cb(
       const px4_msgs::msg::VehicleOdometry::SharedPtr msg) const;
@@ -146,6 +146,8 @@ protected:
       trajectory_setpoint_sub_;
   rclcpp::Subscription<px4_msgs::msg::ParameterRes>::SharedPtr
       parameter_res_sub_;
+	
+   uint64_t last_timestamp_commander_status_ = 0;
 };
 
 } // end namespace dasc_robot_gui

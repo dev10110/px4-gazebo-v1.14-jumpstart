@@ -19,17 +19,6 @@ namespace dasc_robot_gui {
 
 using std::placeholders::_1;
 
-// Here is the implementation of the TeleopPanel class.  TeleopPanel
-// has these responsibilities:
-//
-// - Act as a container for GUI elements DriveWidget and QLineEdit.
-// - Publish command velocities 10 times per second (whether 0 or not).
-// - Saving and restoring internal state from a config file.
-//
-// We start with the constructor, doing the standard Qt thing of
-// passing the optional *parent* argument on to the superclass
-// constructor, and also zero-ing the velocities we will be
-// publishing.
 TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   // Next we lay out the "output topic" text entry field using a
   // QLabel and a QLineEdit in a QHBoxLayout.
@@ -64,6 +53,7 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
 	  s -> setRange(-100.0, 100.0);
 	  s -> setWrapping(false);
   }
+  setpoint_z -> setValue(-1.0);
   setpoint_yaw -> setSingleStep(5.0);
   setpoint_yaw -> setValue(90);
   setpoint_yaw -> setRange(0, 360);
@@ -226,6 +216,8 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
 }
 
 void TeleopPanel::parameter_req(bool set) {
+   
+  param_get_label_->setText("[?]");
 
   std::string param_name = param_name_->text().toStdString(); // get the text
   if (param_name == "") {
@@ -287,6 +279,22 @@ void TeleopPanel::setpoint_pub_timer_callback() {
 void TeleopPanel::timer_callback() {
   reset();
   rclcpp::spin_some(node_);
+
+
+  // check if the connection is still alive
+  rclcpp::Time now_ = node_ -> get_clock() -> now();
+  const uint64_t status_timeout_ns = 1e9;
+  if (now_.nanoseconds() - last_timestamp_commander_status_ > status_timeout_ns) {
+	  // set publish to false
+	  setpoint_pub->setChecked(false);
+	  // set status to comms lost
+  arm_button_->setDisabled(true);
+  offboard_button_->setDisabled(true);
+  land_button_->setDisabled(false);
+  disarm_button_->setDisabled(false);
+	  status_label_->setText("state: COMMS_LOST");
+  }
+
 }
 
 // Read the topic name from the QLineEdit and call setTopic() with the
@@ -453,7 +461,9 @@ void TeleopPanel::trajectory_setpoint_cb(
 }
 
 void TeleopPanel::commander_status_cb(
-    const px4_msgs::msg::CommanderStatus::SharedPtr msg) const {
+    const px4_msgs::msg::CommanderStatus::SharedPtr msg) {
+  
+	last_timestamp_commander_status_ = node_->get_clock()->now().nanoseconds();
 
   // ARM
   arm_button_->setDisabled(msg->state !=
