@@ -17,12 +17,12 @@
 #include "rviz_common/panel.hpp"
 #endif
 #include <QCheckBox>
+#include <QDoubleSpinBox>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QTimer>
-#include <QDoubleSpinBox>
 
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 
@@ -86,8 +86,7 @@ protected Q_SLOTS:
   void vehicle_local_pos_cb(
       const px4_msgs::msg::VehicleLocalPosition::SharedPtr msg) const;
 
-  void commander_status_cb(
-      const px4_msgs::msg::CommanderStatus::SharedPtr msg) ;
+  void commander_status_cb(const px4_msgs::msg::CommanderStatus::SharedPtr msg);
 
   void vehicle_visual_odometry_cb(
       const px4_msgs::msg::VehicleOdometry::SharedPtr msg) const;
@@ -124,6 +123,11 @@ protected:
   QLabel *param_get_label_;
   QPushButton *param_get_button_, *param_set_button_;
 
+  // Raw mode cmd:
+  QSpinBox *motor_num;
+  QDoubleSpinBox *motor_cmd;
+  QCheckBox *raw_mode;
+
   // The current name of the output topic.
   QString output_topic_;
 
@@ -146,8 +150,8 @@ protected:
       trajectory_setpoint_sub_;
   rclcpp::Subscription<px4_msgs::msg::ParameterRes>::SharedPtr
       parameter_res_sub_;
-	
-   uint64_t last_timestamp_commander_status_ = 0;
+
+  uint64_t last_timestamp_commander_status_ = 0;
 };
 
 } // end namespace dasc_robot_gui

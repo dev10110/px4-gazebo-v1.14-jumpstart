@@ -47,18 +47,18 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   setpoint_y = new QDoubleSpinBox;
   setpoint_z = new QDoubleSpinBox;
   setpoint_yaw = new QDoubleSpinBox;
-  for (auto s : {setpoint_x, setpoint_y, setpoint_z} ){
-	  s -> setSingleStep(0.1);
-	  s -> setValue(0.0);
-	  s -> setRange(-100.0, 100.0);
-	  s -> setWrapping(false);
+  for (auto s : {setpoint_x, setpoint_y, setpoint_z}) {
+    s->setSingleStep(0.1);
+    s->setValue(0.0);
+    s->setRange(-100.0, 100.0);
+    s->setWrapping(false);
   }
-  setpoint_z -> setValue(-1.0);
-  setpoint_yaw -> setSingleStep(5.0);
-  setpoint_yaw -> setValue(90);
-  setpoint_yaw -> setRange(0, 360);
-  setpoint_yaw -> setWrapping(true);
-  
+  setpoint_z->setValue(-1.0);
+  setpoint_yaw->setSingleStep(5.0);
+  setpoint_yaw->setValue(90);
+  setpoint_yaw->setRange(0, 360);
+  setpoint_yaw->setWrapping(true);
+
   setpoint_pub = new QCheckBox("publish");
   setpoint_pub->setChecked(false);
   grid_layout->addWidget(setpoint_x, 1, 1);
@@ -121,7 +121,7 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   // params row
   QHBoxLayout *param_layout = new QHBoxLayout;
   param_name_ = new QLineEdit;
-  param_name_ -> setPlaceholderText("param name");
+  param_name_->setPlaceholderText("param name");
   param_name_->setMaxLength(16);
   param_get_label_ = new QLabel("[?]");
   param_get_button_ = new QPushButton("Get");
@@ -134,6 +134,18 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   param_layout->addWidget(param_get_label_);
   param_layout->addWidget(param_set_);
   param_layout->addWidget(param_set_button_);
+
+  QHBoxLayout *raw_motor_layout = new QHBoxLayout;
+  raw_motor_layout->addWidget(new QLabel("Raw Motor CMD:"));
+  motor_num = new QSpinBox;
+  motor_num->setRange(1, 4);
+  raw_motor_layout->addWidget(motor_num);
+  motor_cmd = new QDoubleSpinBox;
+  motor_cmd->setRange(0, 1);
+  motor_cmd->setSingleStep(0.1);
+  raw_motor_layout->addWidget(motor_cmd);
+  raw_mode = new QCheckBox("raw mode?", this);
+  raw_motor_layout->addWidget(raw_mode);
 
   // create the arm disarm buttons
   QHBoxLayout *button_layout = new QHBoxLayout;
@@ -157,6 +169,7 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
   layout->addLayout(topic_layout);
   layout->addLayout(pos_layout);
   layout->addLayout(param_layout);
+  layout->addLayout(raw_motor_layout);
   layout->addLayout(button_layout);
   setLayout(layout);
 
@@ -216,7 +229,7 @@ TeleopPanel::TeleopPanel(QWidget *parent) : rviz_common::Panel(parent) {
 }
 
 void TeleopPanel::parameter_req(bool set) {
-   
+
   param_get_label_->setText("[?]");
 
   std::string param_name = param_name_->text().toStdString(); // get the text
@@ -262,39 +275,49 @@ void TeleopPanel::setpoint_pub_timer_callback() {
   if (rclcpp::ok() && trajectory_setpoint_pub_ != NULL) {
     // construct the setpoint
     px4_msgs::msg::TrajectorySetpoint msg;
-    msg.position[0] = setpoint_x->value();
-    msg.position[1] = setpoint_y->value();
-    msg.position[2] = setpoint_z->value();
-    msg.yaw = (float)(M_PI / 180.f) * (float)(setpoint_yaw->value());
-    for (std::size_t i = 0; i < 3; i++) {
-      msg.velocity[i] = 0;
-      msg.acceleration[i] = 0;
-      msg.jerk[i] = 0;
+    if (raw_mode->isChecked()) {
+      msg.raw_mode = true;
+      for (size_t i = 0; i < 4; i++) {
+        msg.cmd[i] = 0;
+      }
+      msg.cmd[motor_num->value() - 1] = motor_cmd -> value();
+    } else {
+      msg.raw_mode = false;
+      msg.position[0] = setpoint_x->value();
+      msg.position[1] = setpoint_y->value();
+      msg.position[2] = setpoint_z->value();
+      msg.yaw = (float)(M_PI / 180.f) * (float)(setpoint_yaw->value());
+      for (std::size_t i = 0; i < 3; i++) {
+        msg.velocity[i] = 0;
+        msg.acceleration[i] = 0;
+        msg.jerk[i] = 0;
+      }
+      msg.yawspeed = 0;
     }
-    msg.yawspeed = 0;
     trajectory_setpoint_pub_->publish(msg);
   }
 }
 
 void TeleopPanel::timer_callback() {
+
   reset();
+
   rclcpp::spin_some(node_);
 
-
   // check if the connection is still alive
-  rclcpp::Time now_ = node_ -> get_clock() -> now();
+  rclcpp::Time now_ = node_->get_clock()->now();
   const uint64_t status_timeout_ns = 1e9;
-  if (now_.nanoseconds() - last_timestamp_commander_status_ > status_timeout_ns) {
-	  // set publish to false
-	  setpoint_pub->setChecked(false);
-	  // set status to comms lost
-  arm_button_->setDisabled(true);
-  offboard_button_->setDisabled(true);
-  land_button_->setDisabled(false);
-  disarm_button_->setDisabled(false);
-	  status_label_->setText("state: COMMS_LOST");
+  if (now_.nanoseconds() - last_timestamp_commander_status_ >
+      status_timeout_ns) {
+    // set publish to false
+    setpoint_pub->setChecked(false);
+    // set status to comms lost
+    arm_button_->setDisabled(true);
+    offboard_button_->setDisabled(true);
+    land_button_->setDisabled(false);
+    disarm_button_->setDisabled(false);
+    status_label_->setText("state: COMMS_LOST");
   }
-
 }
 
 // Read the topic name from the QLineEdit and call setTopic() with the
@@ -462,8 +485,8 @@ void TeleopPanel::trajectory_setpoint_cb(
 
 void TeleopPanel::commander_status_cb(
     const px4_msgs::msg::CommanderStatus::SharedPtr msg) {
-  
-	last_timestamp_commander_status_ = node_->get_clock()->now().nanoseconds();
+
+  last_timestamp_commander_status_ = node_->get_clock()->now().nanoseconds();
 
   // ARM
   arm_button_->setDisabled(msg->state !=
@@ -517,7 +540,6 @@ void TeleopPanel::reset() {
   }
   mocap_valid->setText("NO MSGS");
   mocap_valid->setStyleSheet("QLabel {color : red; }");
-
 }
 
 void TeleopPanel::vehicle_local_pos_cb(
