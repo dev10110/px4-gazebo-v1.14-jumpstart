@@ -37,7 +37,7 @@ colcon build
 ## Run
 (Build and) run the px4 code:
 ```
-PX4_MICRODDS_NS="drone1" make px4_sitl gazebo-classic
+PX4_MICRODDS_NS="drone1" make px4_sitl_dasc gazebo-classic
 ```
 
 To start the microXRCE agent:
