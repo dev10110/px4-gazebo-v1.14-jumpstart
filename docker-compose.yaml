@@ -14,12 +14,12 @@ services:
       - ~/.ssh:/root/.ssh
       - ./colcon_ws:/root/colcon_ws
       - ./PX4-Autopilot-Quad:/root/PX4-Autopilot-Quad
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              capabilities: [gpu]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #          capabilities: [gpu]
 
 
 
