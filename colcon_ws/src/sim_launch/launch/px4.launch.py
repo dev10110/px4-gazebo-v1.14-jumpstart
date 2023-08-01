@@ -25,7 +25,7 @@ def generate_launch_description():
         Node(
             package="tf2_ros",
             executable="static_transform_publisher",
-            arguments=['0','0','0','-1.57','0','-1.57', 'px4_1', 'camera_link'],
+            arguments=['0','0','0','-1.57','0','-1.57', 'vicon/px4_1/px4_1', 'camera_link'],
             parameters = [
                 {'use_sim_time': True}
                 ],
@@ -43,6 +43,15 @@ def generate_launch_description():
         ExecuteProcess(
             cmd=['MicroXRCEAgent', 'udp4', '-p', '8888'],
             output='screen'),
+
+        # gazebo-px4-bridge
+        Node(
+            package="gazebo_px4_bridge",
+            executable="gazebo_px4_bridge",
+            parameters = [
+                {'use_sim_time': True}
+                ]
+            ),
 
 ])
 

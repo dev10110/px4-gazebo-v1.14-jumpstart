@@ -1,13 +1,15 @@
 Panels:
   - Class: rviz_common/Displays
-    Help Height: 78
+    Help Height: 0
     Name: Displays
     Property Tree Widget:
       Expanded:
         - /Global Options1
         - /Status1
+        - /PointCloud21
+        - /PointCloud21/Autocompute Value Bounds1
       Splitter Ratio: 0.5
-    Tree Height: 481
+    Tree Height: 559
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -48,14 +50,14 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
+        Max Value: 5
+        Min Value: 0
+        Value: false
       Axis: Z
       Channel Name: intensity
       Class: rviz_default_plugins/PointCloud2
       Color: 255; 255; 255
-      Color Transformer: RGB8
+      Color Transformer: AxisColor
       Decay Time: 0
       Enabled: true
       Invert Rainbow: false
@@ -66,16 +68,16 @@ Visualization Manager:
       Name: PointCloud2
       Position Transformer: XYZ
       Selectable: true
-      Size (Pixels): 3
+      Size (Pixels): 1
       Size (m): 0.009999999776482582
-      Style: Flat Squares
+      Style: Points
       Topic:
         Depth: 5
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /camera/points
-      Use Fixed Frame: true
+      Use Fixed Frame: false
       Use rainbow: true
       Value: true
     - Class: rviz_default_plugins/TF
@@ -85,7 +87,9 @@ Visualization Manager:
         All Enabled: true
         camera_link:
           Value: true
-        px4_1:
+        vicon/px4_1/px4_1:
+          Value: true
+        vicon/world:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -93,15 +97,16 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        px4_1:
-          camera_link:
-            {}
+        vicon/world:
+          vicon/px4_1/px4_1:
+            camera_link:
+              {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
-    Background Color: 48; 48; 48
-    Fixed Frame: px4_1
+    Background Color: 0; 0; 0
+    Fixed Frame: vicon/world
     Frame Rate: 30
   Name: root
   Tools:
@@ -141,25 +146,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 9.072165489196777
+      Distance: 11.227231979370117
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 2.06357741355896
-        Y: -0.2681434452533722
-        Z: 2.1113028526306152
+        X: 2.4050424098968506
+        Y: 0.25175270438194275
+        Z: 3.3732614517211914
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5903977751731873
+      Pitch: 0.1753993034362793
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.89039945602417
+      Yaw: 2.007206678390503
     Saved: ~
 Window Geometry:
   Displays:
