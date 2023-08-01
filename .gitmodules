@@ -10,3 +10,6 @@
 [submodule "colcon_ws/src/dasc-robot-gui"]
 	path = colcon_ws/src/dasc-robot-gui
 	url = https://github.com/dev10110/dasc-robot-gui
+[submodule "colcon_ws/src/realsense_gazebo_plugin"]
+	path = colcon_ws/src/realsense_gazebo_plugin
+	url = https://github.com/pal-robotics/realsense_gazebo_plugin.git

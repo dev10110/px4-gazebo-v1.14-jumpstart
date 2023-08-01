@@ -9,6 +9,7 @@ services:
     environment: 
       - QT_X11_NO_MITSHM=1
       - DISPLAY=$DISPLAY
+      - LOCAL_USER_ID=1000
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.ssh:/root/.ssh
