@@ -53,3 +53,6 @@ rviz2
 ```
 and then add the Panels > Add a New Panel > dasc_robot_gui/Teleop
 to be able to control the quadrotor. 
+
+## Troubleshooting
+Be careful with the `ROS_DOMAIN_ID` which in px4 params is `XRCE_DDS_DOMAIN_ID`
