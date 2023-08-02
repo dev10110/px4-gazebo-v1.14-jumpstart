@@ -21,6 +21,7 @@ def generate_launch_description():
         SetEnvironmentVariable(name='GAZEBO_MODEL_PATH', value=PX4_SRC_DIR + '/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models'),
         SetEnvironmentVariable(name='GAZEBO_PLUGIN_PATH', value=PX4_BUILD_DIR + '/build_gazebo-classic'),
         SetEnvironmentVariable(name="PX4_NO_FOLLOW_MODE", value="1"),
+        SetEnvironmentVariable(name="HEADLESS", value="1"),
         
         # define a static transform for the camera
         Node(
