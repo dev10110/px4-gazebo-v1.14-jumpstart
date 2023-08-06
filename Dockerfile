@@ -30,6 +30,15 @@ RUN apt-get install -y \
   ros-${ROS_DISTRO}-image-transport-plugins \ 
   ros-${ROS_DISTRO}-compressed-image-transport
 
+## upgrade the RTPS 
+RUN rm -rf /usr/local/include/fastrtps /usr/local/share/fastrtps /usr/local/lib/libfastrtps* \
+	&& git clone --recursive https://github.com/eProsima/Fast-DDS.git -b v2.11.1 /tmp/FastRTPS-2.11.1 \
+	&& cd /tmp/FastRTPS-2.11.1 \
+	&& mkdir build && cd build \
+	&& cmake -DTHIRDPARTY=ON -DSECURITY=ON .. \
+	&& cmake --build . --target install -- -j $(nproc) \
+	&& rm -rf /tmp/*
+
 
 WORKDIR /root
 

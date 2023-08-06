@@ -35,6 +35,7 @@ endif()
 # Install launch files.
 install(DIRECTORY
   launch
+  models
   DESTINATION share/${PROJECT_NAME}/
 )
 

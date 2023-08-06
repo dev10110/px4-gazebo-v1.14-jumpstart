@@ -1,0 +1,18 @@
+<?xml version="1.0">
+<robot name="visquad">
+
+<material name="white">
+  <color rgba="1 1 1 1"/>
+</material>
+
+	<link name="px4_1/px4_1">
+		<visual>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<geometry>
+			<mesh filename="package://sim_launch/models/dasc_visquad_simplified.stl" scale="0.001 0.001 0.001"/>
+		</geometry>
+<material name="white"/>
+</visual>
+</link>
+
+</robot>

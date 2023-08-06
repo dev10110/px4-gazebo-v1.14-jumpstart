@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import math
 import os
 
 from ament_index_python.packages import get_package_share_directory
@@ -21,7 +21,7 @@ def generate_launch_description():
         SetEnvironmentVariable(name='GAZEBO_MODEL_PATH', value=PX4_SRC_DIR + '/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models'),
         SetEnvironmentVariable(name='GAZEBO_PLUGIN_PATH', value=PX4_BUILD_DIR + '/build_gazebo-classic'),
         SetEnvironmentVariable(name="PX4_NO_FOLLOW_MODE", value="1"),
-        SetEnvironmentVariable(name="HEADLESS", value="1"),
+        # SetEnvironmentVariable(name="HEADLESS", value="1"),
         
         # define a static transform for the camera
         Node(
@@ -33,10 +33,21 @@ def generate_launch_description():
                 ],
             ),
 
+        # define vicon/world/NED"
+        Node(
+            package="tf2_ros",
+            executable="static_transform_publisher",
+            arguments=[
+                "0","0","0", f"{math.pi/2}", "0", f"{math.pi}", "/vicon/world/NED", "/vicon/world"
+                ]
+            ),
+
+
         # launch px4's autopilot
         ExecuteProcess(
             cmd=[
                 'make','-j', 'px4_sitl_dasc', 'gazebo-classic_visquad__warehouse'
+                # 'make','-j', 'px4_sitl_dasc', 'gazebo-classic_visquad'
             ],
             cwd=PX4_SRC_DIR,
             output='screen'),
