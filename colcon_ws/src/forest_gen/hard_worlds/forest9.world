@@ -1,0 +1,2101 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+    <gui>
+      <camera name="user_camera">
+        <pose>-20 -30 40 0 0.66 0.83</pose>
+      </camera>
+    </gui>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <scene>
+      <shadows>0</shadows>
+    </scene>
+    <model name="forest">
+      <static>true</static>
+      <link name="cylinder0">
+        <pose>1.172274030259839 -2.5870712081491085 1.6503236006695057 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.47783166509940705</radius>
+              <length>3.3006472013390113</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.47783166509940705</radius>
+              <length>3.3006472013390113</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder1">
+        <pose>-1.7293824900724015 3.6903788173742864 1.3077983642913638 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4278535126846164</radius>
+              <length>2.6155967285827275</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4278535126846164</radius>
+              <length>2.6155967285827275</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder2">
+        <pose>1.4691271267942554 -3.3969715777175313 1.9881021818101376 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4146501914559816</radius>
+              <length>3.9762043636202753</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4146501914559816</radius>
+              <length>3.9762043636202753</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder3">
+        <pose>-0.08780391303972124 -3.83591225157627 0.3129625525101931 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.21283738826044807</radius>
+              <length>0.6259251050203862</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.21283738826044807</radius>
+              <length>0.6259251050203862</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder4">
+        <pose>7.707592917074621 3.89800344473238 1.1014655226547536 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4760019707552556</radius>
+              <length>2.2029310453095072</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4760019707552556</radius>
+              <length>2.2029310453095072</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder5">
+        <pose>9.772891598388298 0.6115275584408888 1.5100851266629993 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.43066193548463555</radius>
+              <length>3.0201702533259986</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.43066193548463555</radius>
+              <length>3.0201702533259986</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder6">
+        <pose>1.7505054956660437 -3.1118348768236768 0.719011778299716 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3756087073504743</radius>
+              <length>1.438023556599432</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3756087073504743</radius>
+              <length>1.438023556599432</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder7">
+        <pose>5.165075256823535 2.145951381042229 1.6971422014592845 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.45229775478640666</radius>
+              <length>3.394284402918569</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.45229775478640666</radius>
+              <length>3.394284402918569</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder8">
+        <pose>2.509752507008363 -2.2375992644939533 0.752888948420307 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.32527967846151784</radius>
+              <length>1.505777896840614</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.32527967846151784</radius>
+              <length>1.505777896840614</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder9">
+        <pose>-2.107987790158729 0.9403700544372784 1.8675398237381986 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3797480367810342</radius>
+              <length>3.735079647476397</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3797480367810342</radius>
+              <length>3.735079647476397</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder10">
+        <pose>-1.4364294195026197 0.6307272468052698 0.7957427744781498 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.27793223593341526</radius>
+              <length>1.5914855489562996</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.27793223593341526</radius>
+              <length>1.5914855489562996</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder11">
+        <pose>-1.0273357008970372 4.900411574975429 0.2727894158637908 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.26519270187104516</radius>
+              <length>0.5455788317275816</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.26519270187104516</radius>
+              <length>0.5455788317275816</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder12">
+        <pose>-7.19766134666447 -2.2290081188906274 1.6194886612583126 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4479784027460533</radius>
+              <length>3.238977322516625</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4479784027460533</radius>
+              <length>3.238977322516625</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder13">
+        <pose>2.1535435004721837 3.6134829949408864 1.6328396727230374 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.29049963072250107</radius>
+              <length>3.265679345446075</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.29049963072250107</radius>
+              <length>3.265679345446075</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder14">
+        <pose>-2.963383649307083 3.0027850828295364 0.4162043582185563 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.24470177328434448</radius>
+              <length>0.8324087164371126</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.24470177328434448</radius>
+              <length>0.8324087164371126</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder15">
+        <pose>-2.6982942184671366 -4.139671468554016 0.5912206453875045 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.361318284445833</radius>
+              <length>1.182441290775009</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.361318284445833</radius>
+              <length>1.182441290775009</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder16">
+        <pose>-5.6715009682773125 -0.41635388751472746 0.43744774158344213 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3731279099632522</radius>
+              <length>0.8748954831668843</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3731279099632522</radius>
+              <length>0.8748954831668843</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder17">
+        <pose>-8.84543756077052 3.2462369619384432 1.0674923530498286 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.31495100185314573</radius>
+              <length>2.134984706099657</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.31495100185314573</radius>
+              <length>2.134984706099657</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder18">
+        <pose>-7.5860376384602635 1.1478465489061387 0.5350080197695395 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.42522637861464474</radius>
+              <length>1.070016039539079</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.42522637861464474</radius>
+              <length>1.070016039539079</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder19">
+        <pose>-1.981333162095389 2.9375146615295087 1.7203439120882078 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2645297972544835</radius>
+              <length>3.4406878241764156</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2645297972544835</radius>
+              <length>3.4406878241764156</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder20">
+        <pose>1.7743687293034878 -2.9730795682521096 0.26833457681559053 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.26429395575192044</radius>
+              <length>0.5366691536311811</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.26429395575192044</radius>
+              <length>0.5366691536311811</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder21">
+        <pose>7.924020566949185 -1.9459151842348232 1.5252828642438208 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4604337582496173</radius>
+              <length>3.0505657284876415</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4604337582496173</radius>
+              <length>3.0505657284876415</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder22">
+        <pose>-8.128237525742579 3.6946922423799773 1.9902031093773336 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4378310344321389</radius>
+              <length>3.980406218754667</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4378310344321389</radius>
+              <length>3.980406218754667</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder23">
+        <pose>7.259941396982519 -3.116638062286863 1.7837865893936442 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.32052954509923925</radius>
+              <length>3.5675731787872884</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.32052954509923925</radius>
+              <length>3.5675731787872884</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder24">
+        <pose>-4.899663987270686 -4.495391203891025 0.9694646937612602 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.251870119798302</radius>
+              <length>1.9389293875225204</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.251870119798302</radius>
+              <length>1.9389293875225204</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder25">
+        <pose>2.7050250259820956 2.565285543050959 1.0081036393572986 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3649605828777771</radius>
+              <length>2.0162072787145973</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3649605828777771</radius>
+              <length>2.0162072787145973</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder26">
+        <pose>0.6662915329692876 -0.08607112086470003 1.143860719475382 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4664363771446567</radius>
+              <length>2.287721438950764</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4664363771446567</radius>
+              <length>2.287721438950764</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder27">
+        <pose>9.301053684959282 -2.377273404506628 1.9815581790439303 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4212796468492017</radius>
+              <length>3.9631163580878606</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4212796468492017</radius>
+              <length>3.9631163580878606</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder28">
+        <pose>7.71417335860172 4.2356874757463405 1.026723757624787 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.29935900985542024</radius>
+              <length>2.053447515249574</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.29935900985542024</radius>
+              <length>2.053447515249574</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder29">
+        <pose>5.1143076816984046 -2.158007146592947 1.8170349243236692 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4519954217001053</radius>
+              <length>3.6340698486473384</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4519954217001053</radius>
+              <length>3.6340698486473384</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder30">
+        <pose>-8.023755789921143 2.3726394280911904 1.633785939141313 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4314425888309576</radius>
+              <length>3.267571878282626</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4314425888309576</radius>
+              <length>3.267571878282626</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder31">
+        <pose>-8.783780024239478 1.8529859636913546 0.5521312956208283 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3354678700560102</radius>
+              <length>1.1042625912416566</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3354678700560102</radius>
+              <length>1.1042625912416566</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder32">
+        <pose>-1.7946846570771946 -4.879640463028554 0.6509761095932777 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4951377203743958</radius>
+              <length>1.3019522191865553</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4951377203743958</radius>
+              <length>1.3019522191865553</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder33">
+        <pose>-2.774158211646549 -0.6324460447574651 1.4860577832935333 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.22498215536975413</radius>
+              <length>2.9721155665870667</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.22498215536975413</radius>
+              <length>2.9721155665870667</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder34">
+        <pose>-4.830682581210968 3.6338926222487657 1.1782934649945989 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2624409395307314</radius>
+              <length>2.3565869299891977</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2624409395307314</radius>
+              <length>2.3565869299891977</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder35">
+        <pose>6.1596443801637335 0.6327221873856059 0.785855416689579 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.47234299887815495</radius>
+              <length>1.571710833379158</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.47234299887815495</radius>
+              <length>1.571710833379158</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder36">
+        <pose>-2.053677374957066 2.260974285988336 0.47106953001592966 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.42275569455468265</radius>
+              <length>0.9421390600318593</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.42275569455468265</radius>
+              <length>0.9421390600318593</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder37">
+        <pose>5.636263934705095 2.3467180267844903 1.5248589014274034 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4007094248302384</radius>
+              <length>3.049717802854807</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4007094248302384</radius>
+              <length>3.049717802854807</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder38">
+        <pose>-0.37316022649620706 -2.9425456373382906 0.7434878375620688 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.471447178104841</radius>
+              <length>1.4869756751241376</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.471447178104841</radius>
+              <length>1.4869756751241376</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder39">
+        <pose>1.342482860652968 -2.493003732652397 0.5193021265939753 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2929886127548617</radius>
+              <length>1.0386042531879507</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2929886127548617</radius>
+              <length>1.0386042531879507</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder40">
+        <pose>0.3944717160679936 2.7430470432727656 1.0902968880170625 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2515316093758815</radius>
+              <length>2.180593776034125</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2515316093758815</radius>
+              <length>2.180593776034125</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder41">
+        <pose>1.7470127580237147 -1.4915080921985266 1.5289943561874384 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.45498475491962465</radius>
+              <length>3.057988712374877</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.45498475491962465</radius>
+              <length>3.057988712374877</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder42">
+        <pose>0.4833007873862485 -4.631517240622913 0.9587816139518189 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2997523990856025</radius>
+              <length>1.9175632279036379</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2997523990856025</radius>
+              <length>1.9175632279036379</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder43">
+        <pose>8.057647687047563 -0.834534424689438 0.8361046101471094 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4370648671270598</radius>
+              <length>1.6722092202942187</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4370648671270598</radius>
+              <length>1.6722092202942187</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder44">
+        <pose>5.09183046761439 4.356696653174071 0.6370356927769524 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.49255547660716986</radius>
+              <length>1.2740713855539048</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.49255547660716986</radius>
+              <length>1.2740713855539048</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder45">
+        <pose>-1.119472208505183 -1.3289660213918495 1.736408832292753 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.494754598590977</radius>
+              <length>3.472817664585506</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.494754598590977</radius>
+              <length>3.472817664585506</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder46">
+        <pose>-3.1817616980130126 2.9039051406659215 1.5560283552520087 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.45929024897709336</radius>
+              <length>3.1120567105040173</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.45929024897709336</radius>
+              <length>3.1120567105040173</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder47">
+        <pose>-4.367664387534629 2.2382331642469904 0.6750968998628682 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3851428740753986</radius>
+              <length>1.3501937997257365</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3851428740753986</radius>
+              <length>1.3501937997257365</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder48">
+        <pose>-6.0302062382765005 -0.7461990755888825 1.3883928154669296 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2581907299841091</radius>
+              <length>2.776785630933859</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2581907299841091</radius>
+              <length>2.776785630933859</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder49">
+        <pose>2.5600851657939216 -2.6593592414015985 1.807525738946715 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2947621501429601</radius>
+              <length>3.61505147789343</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2947621501429601</radius>
+              <length>3.61505147789343</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder50">
+        <pose>-7.947863062577554 -0.534170178684076 0.8637822530448754 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3362561109476193</radius>
+              <length>1.7275645060897509</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3362561109476193</radius>
+              <length>1.7275645060897509</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder51">
+        <pose>-0.31065647370090055 -3.4024041263774962 1.8391846119330162 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3942709887611707</radius>
+              <length>3.6783692238660324</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3942709887611707</radius>
+              <length>3.6783692238660324</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder52">
+        <pose>-0.8976731128835524 2.5152506981584626 0.4743901521329339 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.27152746198058453</radius>
+              <length>0.9487803042658678</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.27152746198058453</radius>
+              <length>0.9487803042658678</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder53">
+        <pose>-4.34474678072162 -3.8327598929671245 1.4531927139660992 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2040491601174158</radius>
+              <length>2.9063854279321983</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2040491601174158</radius>
+              <length>2.9063854279321983</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder54">
+        <pose>7.635557036141854 0.18340406564051914 0.5739397661358765 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.32636384533460494</radius>
+              <length>1.147879532271753</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.32636384533460494</radius>
+              <length>1.147879532271753</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder55">
+        <pose>2.037371392727877 0.9679840088414835 1.193117402385557 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.44763459928919475</radius>
+              <length>2.386234804771114</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.44763459928919475</radius>
+              <length>2.386234804771114</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder56">
+        <pose>5.77453719036496 1.1765577602903647 1.8649387957507155 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.46015891491109573</radius>
+              <length>3.729877591501431</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.46015891491109573</radius>
+              <length>3.729877591501431</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder57">
+        <pose>2.347567777858915 -4.249318127250098 1.3703611142674677 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.35919063491074227</radius>
+              <length>2.7407222285349353</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.35919063491074227</radius>
+              <length>2.7407222285349353</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder58">
+        <pose>-3.4811380408730024 -0.4233433043647503 1.4003557790375751 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.38041135254727154</radius>
+              <length>2.8007115580751503</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.38041135254727154</radius>
+              <length>2.8007115580751503</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder59">
+        <pose>-4.345201783234744 3.297352058585167 1.5559087344508375 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3908001939084963</radius>
+              <length>3.111817468901675</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3908001939084963</radius>
+              <length>3.111817468901675</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder60">
+        <pose>1.1240487296265407 2.744616487002988 0.5228833809949482 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4315507352868999</radius>
+              <length>1.0457667619898965</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4315507352868999</radius>
+              <length>1.0457667619898965</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder61">
+        <pose>-8.256740009061918 0.5485368423145971 1.0949144419252965 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4254410713399499</radius>
+              <length>2.189828883850593</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4254410713399499</radius>
+              <length>2.189828883850593</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder62">
+        <pose>8.967417788357498 3.7422869617313754 1.4350583371386254 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.21980598766111598</radius>
+              <length>2.870116674277251</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.21980598766111598</radius>
+              <length>2.870116674277251</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder63">
+        <pose>-4.61881837741168 -4.004541959503768 1.1259237385991092 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.30684390037628484</radius>
+              <length>2.2518474771982184</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.30684390037628484</radius>
+              <length>2.2518474771982184</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder64">
+        <pose>5.0499714922183685 -0.8993206014817279 1.2121046544404135 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4667306527988593</radius>
+              <length>2.424209308880827</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4667306527988593</radius>
+              <length>2.424209308880827</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder65">
+        <pose>-5.273722822116822 -1.1719200874400526 1.5498678435165663 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3485401122784212</radius>
+              <length>3.0997356870331325</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3485401122784212</radius>
+              <length>3.0997356870331325</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder66">
+        <pose>5.4750658606712825 0.5046375781375847 0.30945745431956423 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.25980068973459824</radius>
+              <length>0.6189149086391285</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.25980068973459824</radius>
+              <length>0.6189149086391285</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder67">
+        <pose>-8.031769975250569 1.3937495497884687 1.1144404385027926 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3048311313007585</radius>
+              <length>2.2288808770055852</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3048311313007585</radius>
+              <length>2.2288808770055852</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder68">
+        <pose>-3.3174798732282973 -1.4255734789340826 0.4992106060048882 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2902759739326535</radius>
+              <length>0.9984212120097764</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2902759739326535</radius>
+              <length>0.9984212120097764</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder69">
+        <pose>-1.8952877537410284 -1.5779387830197145 0.9965248004810159 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2568313424763738</radius>
+              <length>1.9930496009620318</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2568313424763738</radius>
+              <length>1.9930496009620318</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder70">
+        <pose>-1.2692272467957455 2.4034576149989544 1.7949457781730636 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.23193074040256512</radius>
+              <length>3.589891556346127</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.23193074040256512</radius>
+              <length>3.589891556346127</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder71">
+        <pose>9.466777345418283 0.2633477544916465 0.9511455898583618 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4672783311936315</radius>
+              <length>1.9022911797167237</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4672783311936315</radius>
+              <length>1.9022911797167237</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder72">
+        <pose>-5.354805050011235 3.0506650631507775 1.9610728085765028 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3972427894160798</radius>
+              <length>3.9221456171530056</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3972427894160798</radius>
+              <length>3.9221456171530056</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder73">
+        <pose>-2.530538195857801 3.8984800448718744 0.9350716698909154 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.434371079268929</radius>
+              <length>1.8701433397818308</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.434371079268929</radius>
+              <length>1.8701433397818308</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder74">
+        <pose>-5.706497397421979 3.541305971943787 0.3079247287288505 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2997828397897602</radius>
+              <length>0.615849457457701</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2997828397897602</radius>
+              <length>0.615849457457701</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder75">
+        <pose>9.407079869266038 -1.869883809839017 1.6730836952907178 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.20291603620411247</radius>
+              <length>3.3461673905814355</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.20291603620411247</radius>
+              <length>3.3461673905814355</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder76">
+        <pose>-8.528681058874097 -2.0822796472871152 0.825502372763288 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.23051917157827884</radius>
+              <length>1.651004745526576</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.23051917157827884</radius>
+              <length>1.651004745526576</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder77">
+        <pose>5.2927395687484395 4.800687483233473 1.8649500182806666 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.49007109721233033</radius>
+              <length>3.7299000365613333</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.49007109721233033</radius>
+              <length>3.7299000365613333</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder78">
+        <pose>-9.32074709863353 0.5927603694461601 0.5223959708278985 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.21416922777010028</radius>
+              <length>1.044791941655797</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.21416922777010028</radius>
+              <length>1.044791941655797</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder79">
+        <pose>0.36223076936810017 -1.5696904083838739 1.0350229103638289 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.49514584307019155</radius>
+              <length>2.0700458207276577</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.49514584307019155</radius>
+              <length>2.0700458207276577</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder80">
+        <pose>-9.397645619055679 -2.1216251895150764 1.7021720992035765 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3836000549501303</radius>
+              <length>3.404344198407153</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3836000549501303</radius>
+              <length>3.404344198407153</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder81">
+        <pose>4.924764845798128 1.1202287118193075 1.8547526545836772 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4279824537803258</radius>
+              <length>3.7095053091673544</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4279824537803258</radius>
+              <length>3.7095053091673544</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder82">
+        <pose>9.011015399652191 4.972571425564761 0.33972461818218597 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.33552609498608454</radius>
+              <length>0.6794492363643719</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.33552609498608454</radius>
+              <length>0.6794492363643719</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder83">
+        <pose>-6.575775669519088 4.4382247961098305 0.47612851066249223 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2276303738601968</radius>
+              <length>0.9522570213249845</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2276303738601968</radius>
+              <length>0.9522570213249845</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder84">
+        <pose>-0.14742013949802946 -2.099451276025736 1.5936902863371218 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.21917902231631006</radius>
+              <length>3.1873805726742437</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.21917902231631006</radius>
+              <length>3.1873805726742437</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder85">
+        <pose>7.876743926209976 2.237547368012075 1.364348932963292 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.359948443977569</radius>
+              <length>2.728697865926584</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.359948443977569</radius>
+              <length>2.728697865926584</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder86">
+        <pose>0.13462187069609932 -0.31328198292809883 1.8302319822519477 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3575314949947395</radius>
+              <length>3.6604639645038954</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3575314949947395</radius>
+              <length>3.6604639645038954</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder87">
+        <pose>2.218289497881493 1.8437767191302354 1.9212056690369026 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.44264471503653824</radius>
+              <length>3.842411338073805</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.44264471503653824</radius>
+              <length>3.842411338073805</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder88">
+        <pose>4.4200052808815045 -2.0351812862463357 0.680783453688786 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.28743821146190485</radius>
+              <length>1.361566907377572</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.28743821146190485</radius>
+              <length>1.361566907377572</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder89">
+        <pose>-3.429014668484336 -3.3021428030574276 1.4297650859665878 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.3025816854567377</radius>
+              <length>2.8595301719331756</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.3025816854567377</radius>
+              <length>2.8595301719331756</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder90">
+        <pose>-4.79943225749615 -3.481215597770586 1.2062649245077772 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4562775837820666</radius>
+              <length>2.4125298490155545</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4562775837820666</radius>
+              <length>2.4125298490155545</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder91">
+        <pose>-9.126609868499813 4.396175244562116 1.5992337850630562 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.36647131896278917</radius>
+              <length>3.1984675701261125</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.36647131896278917</radius>
+              <length>3.1984675701261125</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder92">
+        <pose>-8.958444603072195 -0.921695044575519 0.30770849782537396 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.28479007910208054</radius>
+              <length>0.6154169956507479</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.28479007910208054</radius>
+              <length>0.6154169956507479</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder93">
+        <pose>7.711986162549977 3.8631919251300246 1.6471505768630492 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.29215625806866863</radius>
+              <length>3.2943011537260984</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.29215625806866863</radius>
+              <length>3.2943011537260984</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder94">
+        <pose>4.1397918574805175 -1.7134827361171476 1.119365355130535 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.4438549741763137</radius>
+              <length>2.23873071026107</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.4438549741763137</radius>
+              <length>2.23873071026107</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder95">
+        <pose>-1.6328639902616864 -1.383580836791758 1.859776688130918 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2056913728978304</radius>
+              <length>3.719553376261836</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2056913728978304</radius>
+              <length>3.719553376261836</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder96">
+        <pose>-4.974489897337948 0.030909448763807745 0.6388115718608478 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.269512661321967</radius>
+              <length>1.2776231437216956</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.269512661321967</radius>
+              <length>1.2776231437216956</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder97">
+        <pose>-9.253019018146345 -2.1347551818712764 1.8045720265927714 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.2071739628066993</radius>
+              <length>3.6091440531855428</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.2071739628066993</radius>
+              <length>3.6091440531855428</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder98">
+        <pose>-2.448485785068087 -1.1968779234382545 0.4200028534652115 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.26970822189552657</radius>
+              <length>0.840005706930423</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.26970822189552657</radius>
+              <length>0.840005706930423</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cylinder99">
+        <pose>1.5103543758701417 -3.8831757570982663 1.1148956399088799 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.26326833637354874</radius>
+              <length>2.2297912798177597</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.26326833637354874</radius>
+              <length>2.2297912798177597</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cube0">
+        <pose>0 5.0 2.0 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>20 0.25 4.0</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>20 0.25 4.0</size>
+            </box>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cube1">
+        <pose>0 -5.0 2.0 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>20 0.25 4.0</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>20 0.25 4.0</size>
+            </box>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="cube2">
+        <pose>0 0 0.125 0 0 0 </pose>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>20 10 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>20 10 0.25</size>
+            </box>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+    </model>
+    <!-- Plugins -->
+    <plugin name="gazebo_octomap" filename="librotors_gazebo_octomap_plugin.so"/>
+    <plugin name="ros_interface_plugin" filename="librotors_gazebo_ros_interface_plugin.so"/>
+    <!-- Physics -->
+    <physics name="default_physics" default="0" type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+      <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>1000</iters>
+          <sor>1.3</sor>
+          <use_dynamic_moi_rescaling>0</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+  </world>
+</sdf>
