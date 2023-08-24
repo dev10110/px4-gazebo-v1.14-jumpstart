@@ -67,7 +67,7 @@ class GenXML:
     self.root.append(model_el)
 
     #plugins
-    self.add_plugins()
+    # self.add_plugins()
 
     #physics
     self.add_physics()
@@ -131,6 +131,20 @@ class GenXML:
     cylinder_el.append(length_el)
     geometry_el.append(cylinder_el)
     visual_el.append(geometry_el)
+    material_el = etree.Element("material")
+    ambient_el = etree.Element("ambient")
+    ambient_el.text = "0.6 0.6 0.6 1"
+    diffuse_el = etree.Element("diffuse")
+    diffuse_el.text = "1 1 0.5 1"
+    specular_el = etree.Element("specular")
+    specular_el.text = "0 0 0"
+    emissive_el = etree.Element("emissive")
+    emissive_el.text = "0 0 0 1"
+    material_el.append(ambient_el)
+    material_el.append(diffuse_el)
+    material_el.append(specular_el)
+    material_el.append(emissive_el)
+    visual_el.append(material_el)
     link_el.append(visual_el)
 
     collision_el = etree.Element('collision', name = 'collision')
@@ -161,6 +175,20 @@ class GenXML:
     cube_el.append(size_el)
     geometry_el.append(cube_el)
     visual_el.append(geometry_el)
+    material_el = etree.Element("material")
+    ambient_el = etree.Element("ambient")
+    ambient_el.text = "0.1 0.1 0.1 1"
+    diffuse_el = etree.Element("diffuse")
+    diffuse_el.text = "0.1 0.1 0.2 1"
+    specular_el = etree.Element("specular")
+    specular_el.text = "0 0 0"
+    emissive_el = etree.Element("emissive")
+    emissive_el.text = "0 0 0 1"
+    material_el.append(ambient_el)
+    material_el.append(diffuse_el)
+    material_el.append(specular_el)
+    material_el.append(emissive_el)
+    visual_el.append(material_el)
     link_el.append(visual_el)
 
     collision_el = etree.Element('collision', name = 'collision')
@@ -288,17 +316,23 @@ class World:
 
       height = 4.0
       width = 0.25
+      extra_L = 10.0
 
       # block off along the x-axis
-      cube_p = Cube(0, [0,  self.world_length_y/2, height/2, 0, 0, 0], [self.world_length_x, width, height])
-      cube_n = Cube(1, [0, -self.world_length_y/2, height/2, 0, 0, 0], [self.world_length_x, width, height])
+      cube_p = Cube(0, [0,  self.world_length_y/2, height/2, 0, 0, 0], [self.world_length_x+extra_L, width, height])
+      cube_n = Cube(1, [0, -self.world_length_y/2, height/2, 0, 0, 0], [self.world_length_x+extra_L, width, height])
 
       self.cubes.append(cube_p)
       self.cubes.append(cube_n)
 
       # add a cube for the floor
-      cube_f = Cube(2, [0, 0, width/2, 0, 0, 0], [self.world_length_x, self.world_length_y, width])
+      cube_f = Cube(2, [0, 0, width/8, 0, 0, 0], [self.world_length_x+extra_L, self.world_length_y, width/4])
       self.cubes.append(cube_f)
+
+
+      # add a cube for the takeoff
+      cube_t = Cube(3, [-self.world_length_x/2 - 2.0, 0.0, 0.25,   0, 0, 0], [0.25, 0.25, 1.0])
+      self.cubes.append(cube_t)
 
   def save_world(self, filename):
 
