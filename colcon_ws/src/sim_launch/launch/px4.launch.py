@@ -16,23 +16,18 @@ def generate_launch_description():
     PX4_SRC_DIR = '/root/PX4-Autopilot-Quad'
     PX4_BUILD_DIR = os.path.join(PX4_SRC_DIR, '/build/px4_sitl_dasc')
 
-    # GAZEBO_MODEL_PATH = f"{PX4_SRC_DIR}/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models:/root/colcon_ws/src/forest_gen/models_low_res:/root/colcon_ws/src/forest_gen/models_high_res"
-    # GAZEBO_MODEL_PATH = "/root/colcon_ws/src/forest_gen/models_low_res"
+    WORLD = "easy_worlds/forest4.world"
 
-    # print(GAZEBO_MODEL_PATH)
-    
 
     return LaunchDescription([
 
+        SetEnvironmentVariable(name='GAZEBO_RESOURCE_PATH', value='${GAZEBO_RESOURCE_PATH}:/usr/share/gazebo-11:/root/colcon_ws/src/forest_gen'),
         SetEnvironmentVariable(name='GAZEBO_MODEL_PATH', value=PX4_SRC_DIR + '/Tools/simulation/gazebo-classic/sitl_gazebo-classic/models'),
-        # SetEnvironmentVariable(name="GAZEBO_MODEL_PATH", value=GAZEBO_MODEL_PATH),
-        # SetEnvironmentVariable(name='GAZEBO_PLUGIN_PATH', value="${GAZBO_PLUGIN_PATH}:" + PX4_BUILD_DIR + '/build_gazebo-classic'),
         SetEnvironmentVariable(name='GAZEBO_PLUGIN_PATH', value=PX4_BUILD_DIR + '/build_gazebo-classic'),
         SetEnvironmentVariable(name="PX4_NO_FOLLOW_MODE", value="1"),
-        # SetEnvironmentVariable(name="HEADLESS", value="1"),
-        SetEnvironmentVariable(name="PX4_SITL_WORLD", value="/root/colcon_ws/src/forest_gen/easy_worlds/forest0.world"), # give it an absolute path to the world
+        SetEnvironmentVariable(name="HEADLESS", value="1"),
+        SetEnvironmentVariable(name="PX4_SITL_WORLD", value="/root/colcon_ws/src/forest_gen/" + WORLD), # give it an absolute path to the world
         SetEnvironmentVariable(name="VERBOSE_SIM", value="1"),
-        SetEnvironmentVariable('GAZEBO_RESOURCE_PATH', '${GAZEBO_RESOURCE_PATH}:/usr/share/gazebo-11:/root/colcon_ws/src/forest_gen'),
 
         SetEnvironmentVariable("PX4_SPAWN_LOCATION_X", value="-27.0"),
         SetEnvironmentVariable("PX4_SPAWN_LOCATION_Y",  value="0.0"),

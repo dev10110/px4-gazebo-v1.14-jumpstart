@@ -1,3 +1,4 @@
+import csv
 from lxml import etree
 import random
 import math
@@ -346,9 +347,20 @@ class World:
     for cube in self.cubes:
       xml.add_cube_model(cube)
 
-    text_file = open(filename, "w")
+    text_file = open(filename + ".world", "w")
     text_file.write(xml.output_xml())
     text_file.close()
+
+    # create a csv with data on the world
+    csv_file = open(filename + ".csv", "w")
+    writer = csv.writer(csv_file)
+    row = ["x", "y", "r", "h"]
+    writer.writerow(row)
+    for cylinder in self.cylinders:
+        row = [cylinder.pose[0], cylinder.pose[1], cylinder.radius, cylinder.height]
+        writer.writerow(row)
+
+    csv_file.close()
 
 def gen_worlds(save_path, num_worlds, world_length_x, world_length_y, num_trees, num_cylinders, use_high_res):
   for i in range(num_worlds):
@@ -356,7 +368,7 @@ def gen_worlds(save_path, num_worlds, world_length_x, world_length_y, num_trees,
     world.add_trees(num_trees)
     world.add_cylinders(num_cylinders)
     world.add_bounding_cubes()
-    world.save_world(save_path + '/forest' + str(i) + '.world')
+    world.save_world(save_path + '/forest' + str(i))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate a random gazebo forest.')
