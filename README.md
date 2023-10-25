@@ -30,11 +30,18 @@ docker compose up &
 Build the ros code:
 ```
 cd /root/colcon_ws
-colcon build
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
 
-
 ## Run
+```
+ros2 launch sim_launch px4.launch.py
+```
+this will launch gazebo, px4, rviz, and some necessary nodes to make everything work together. 
+
+## Run (OLD DOCUMENTATION)
+(this is also what is happening under-the-hood)
+
 (Build and) run the px4 code:
 ```
 PX4_MICRODDS_NS="drone1" make px4_sitl_dasc gazebo-classic
